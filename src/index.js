@@ -3,12 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './containers/pages/App';
 import * as serviceWorker from './serviceWorker';
+import Firebase from './config/firebase';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+console.log(Firebase);
+
+ReactDOM.render(<App />,  document.getElementById('root')
 );
 
 // If you want your app to work offline and load faster, you can change

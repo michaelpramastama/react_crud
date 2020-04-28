@@ -1,3 +1,7 @@
+import firebase from 'firebase/app';
+// import 'firebase/auth';
+// import 'firebase/firestore';
+
 var firebaseConfig = {
     apiKey: "AIzaSyDoXSQhXxWyCYME5zyRG79r6RpEy1Eonqo",
     authDomain: "crud-reactt.firebaseapp.com",
@@ -11,3 +15,5 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
+
+export default firebase;
