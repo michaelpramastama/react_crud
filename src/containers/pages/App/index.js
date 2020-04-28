@@ -1,6 +1,6 @@
 import React from 'react';
 // import logo from '../../../assets/img/logo/logo.svg';
-import { BrowserRouter as Router , Route, Link } from "react-router-dom";
+import { BrowserRouter as Router , Route } from "react-router-dom";
 import Dasborad from '../Dashboard';
 import Login from '../Login';
 import Register from '../Register';
