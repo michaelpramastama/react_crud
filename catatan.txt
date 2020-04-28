@@ -1,0 +1,2 @@
+1> npm install --save firebase
+2> React router dom
