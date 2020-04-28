@@ -5,6 +5,7 @@ import App from './containers/pages/App';
 import * as serviceWorker from './serviceWorker';
 import Firebase from './config/firebase';
 
+
 console.log(Firebase);
 
 ReactDOM.render(<App />,  document.getElementById('root')
