@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './register.scss';
+import './register.css';
 import firebase from '../../../config/firebase';
 
 class Register extends Component {
