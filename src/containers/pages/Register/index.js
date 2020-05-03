@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-import './register.css';
-import firebase from '../../../config/firebase';
+import './register.scss';
+import Button from '../../../components/atoms/button';
+import { connect } from 'react-redux';
+import { registerUserApi } from '../../../config/redux/action';
 
 class Register extends Component {
 
     state = {
         email: '',
-        password: ''
+        password: '',
     }
 
     handleChangeText = (e) =>{
@@ -18,15 +20,8 @@ class Register extends Component {
 
     handleRegisterSubmit = () => {
         const {email, password} = this.state;
-        firebase.auth().createUserWithEmailAndPassword(email, password)
-        .then(res =>{
-            console.log('Success: ', res);
-        })
-        .catch(function (error) {
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            console.log(errorCode, errorMessage)
-        });
+        this.props.registerApi({email, password})
+
     }
 
     render() {
@@ -36,7 +31,7 @@ class Register extends Component {
                     <p className="auth-title">Register Page</p>
                     <input className="input" id="email" placeholder="Email" type="text" onChange={this.handleChangeText} />
                     <input className="input" id="password" placeholder="Password" type="password" onChange={this.handleChangeText} />
-                    <button className="btn" onClick={this.handleRegisterSubmit}>Register</button>
+                    < Button onClick={this.handleRegisterSubmit} title="Register" loading={this.props.isLoading}/>
                 </div>
                 {/* <button>Go To Dasboard</button> */}
             </div>
@@ -44,4 +39,12 @@ class Register extends Component {
     }
 }
 
-export default Register;
+const reduxState = (state) => ({
+    isLoading: state.isLoading
+})
+
+const reduxDispatch = (dispatch) => ({
+    registerApi: (data) => dispatch(registerUserApi(data))
+})
+
+export default connect(reduxState, reduxDispatch)(Register);
